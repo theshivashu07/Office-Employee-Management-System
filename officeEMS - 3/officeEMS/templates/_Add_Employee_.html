@@ -1,0 +1,78 @@
+
+
+{% extends "__MASTER__.html" %}
+
+
+
+
+
+{% block title_content %}
+
+Add Employee
+
+{% endblock %}
+
+
+
+
+
+{% block body_content %}
+
+    <div class="container">
+      <br> <br>
+      <h1 style="font-family: Times New Roman">Add An Employee!
+        <a class="btn btn-primary" style="float: right;" href="/" role="button">go back to Home</a>
+      </h1>
+      <hr> <br>
+
+      <form action="/add_employees_" method="post">
+      {% csrf_token %}
+        <label for="first_name">First Name</label><br>
+        <input type="text" id="first_name" name="first_name" value="{{ first_name }}" required><br>
+        <label for="last_name">Last Name</label><br>
+        <input type="text" id="last_name" name = "last_name" value="{{ last_name }}" required><br>
+        <label for="salary">Salary</label><br>
+        <input type="number" id="salary" name="salary" value="{{ salary }}" required><br>
+
+        <label for="dept">Department</label><br>
+        <select class="form-select-sm" name="dept" style="height: 32px; width: 190px; border-color: gray;" required>
+          <option value="">Select</option>
+          {% for dept in depts %}
+            <option value="{{dept.id}}">{{dept.name}}</option>
+          {% endfor %}
+        </select> <br>
+        <!-- <input type="number" id="dept" name="dept" value="{{ dept }}"><br> -->
+    
+        <label for="role">Role</label><br>
+        <select class="form-select-sm" name="role" style="height: 32px; width: 190px; border-color: gray;" required>
+          <option value="">Select</option>
+          {% for role in roles %}
+            <option value="{{role.id}}">{{role.name}}</option>
+          {% endfor %}
+        </select> <br>
+        <!-- <input type="number" id="role" name="role" value="{{ role }}"><br> -->
+    
+        <label for="location">Location</label><br>
+        <select class="form-select-sm" name="location" style="height: 32px; width: 190px; border-color: gray;" required>
+          <option value="">Select</option>
+          {% for location in locations %}
+            <option value="{{location.id}}">{{location.name}}</option>
+          {% endfor %}
+        </select> <br>
+        <!-- <input type="number" id="location" name="location" value="{{ location }}"><br> -->
+
+        <label for="bonus">Bonus</label><br>
+        <input type="number" id="bonus" name="bonus" value="{{ bonus }}" required><br>
+        <label for="phone">Phone Number</label><br>
+        <input type="number" id="phone" name="phone" value="{{ phone }}" required><br>
+        <hr>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+{% endblock %}
+
+
+
+
+

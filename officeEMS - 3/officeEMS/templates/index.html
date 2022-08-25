@@ -1,0 +1,79 @@
+
+
+{% extends "__MASTER__.html" %}
+
+
+
+
+
+{% block title_content %}
+
+Office Employee Management System!
+
+{% endblock %}
+
+
+
+
+
+{% block body_content %}
+
+    <div class="container">
+      <br> <br>
+      <h1 style="font-family: Times New Roman">Office Employee Management System!</h1>
+      <hr>
+      <a class="btn btn-primary" href="/all_employees_" role="button">View All Employee</a>
+      <a class="btn btn-primary" href="/add_employees_" role="button">Add An Employee</a>
+      <a class="btn btn-primary" href="/update_employees_" role="button">Update An Employee</a>
+      <a class="btn btn-primary" href="/remove_employees_" role="button">Remove An Employee</a>
+      <a class="btn btn-primary" href="/filter_employees_" role="button">Filter Employee Details</a>
+    </div>
+    <br> <br> 
+
+    <!--
+    <br> <br> <br>
+    <div class="container" style="background-color: #f2f2f2;">
+      <br> <br>
+      <h4 style="font-family: Times New Roman;">Did you want to work with <b>Role</b> or <b>Department?</b></h4>
+      <hr>
+      <div class="dropdown">
+
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+          View All Role/Department
+        </button>
+        <ul class="dropdown-menu dropdown-menu-light">
+          <li><a class="dropdown-item" href="/">Role</a></li>
+          <li><a class="dropdown-item" href="/">Department</a></li>
+        </ul>
+
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Add Role/Department
+        </button>
+        <ul class="dropdown-menu dropdown-menu-light">
+          <li><a class="dropdown-item" href="/">Role</a></li>
+          <li><a class="dropdown-item" href="/">Department</a></li>
+        </ul>
+
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Update Role/Department
+        </button>
+        <ul class="dropdown-menu dropdown-menu-light">
+          <li><a class="dropdown-item" href="/">Role</a></li>
+          <li><a class="dropdown-item" href="/">Department</a></li>
+        </ul>
+
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Remove All Role/Department
+        </button>
+        <ul class="dropdown-menu dropdown-menu-light">
+          <li><a class="dropdown-item" href="/">Role</a></li>
+          <li><a class="dropdown-item" href="/">Department</a></li>
+        </ul>
+
+        <hr>
+      </div>
+      <br> <br>
+    </div>
+-->
+
+{% endblock %}
