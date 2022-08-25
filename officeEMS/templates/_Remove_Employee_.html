@@ -1,0 +1,40 @@
+
+
+{% extends "__MASTER__.html" %}
+
+
+
+
+
+{% block title_content %}
+
+Remove Employee
+
+{% endblock %}
+
+
+
+
+
+{% block body_content %}
+
+    <div class="container">
+      <br> <br>
+      <h1 style="font-family: Times New Roman">Remove An Employee!
+        <a class="btn btn-primary" style="float: right;" href="/" role="button">go back to Home</a>
+      </h1>
+      <hr> <br>
+
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Choose Employee To Be Removed
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          {% for emp in emps %}
+            <li><a class="dropdown-item" href="/remove_employees_/{{emp.id}}">{{emp.first_name}} {{emp.last_name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+{% endblock %}
