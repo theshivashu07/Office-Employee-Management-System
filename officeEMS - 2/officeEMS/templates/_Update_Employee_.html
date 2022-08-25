@@ -1,0 +1,89 @@
+
+
+{% extends "__MASTER__.html" %}
+
+
+
+
+
+{% block title_content %}
+
+Update Employee
+
+{% endblock %}
+
+
+
+
+
+{% block body_content %}
+
+    <div class="container">
+      <br> <br>
+      <h1 style="font-family: Times New Roman">Update An Employee!
+        <a class="btn btn-primary" style="float: right;" href="/" role="button">go back to Home</a>
+        <!-- <a href="/" style="font-size: 20px; float: right;">HOME</a> -->
+      </h1>
+      <hr> <br>
+
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {% if permit == 1 %}
+              Choose Employee to be Up-To-Date
+          {% elif permit == 2 %}
+              {{emp.first_name}} {{emp.last_name}}
+          {% endif %}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          {% for emp_ in emps %}
+            {% if not emp.id == emp_.id %}
+              <li><a class="dropdown-item" href="/update_employees_/{{emp_.id}}">{{emp_.first_name}} {{emp_.last_name}}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <br>
+
+    {% if permit == 2 %}
+    <div class="container">
+      <hr>
+      <form action="/update_employees_" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="hidden_id" value="{{emp.id}}" />
+        <label for="first_name">First Name</label><br>
+        <input type="text" id="first_name" name="first_name" value="{{ emp.first_name }}" required><br>
+        <label for="last_name">Last Name</label><br>
+        <input type="text" id="last_name" name = "last_name" value="{{ emp.last_name }}" required><br>
+        <label for="salary">Salary</label><br>
+        <input type="number" id="salary" name="salary" value="{{ emp.salary }}" required><br>
+
+        <label for="dept">Department</label><br>
+        <select class="form-select-sm" name="dept" style="height: 32px; width: 190px; border-color: gray;" required>
+          <option value="">Select</option>
+          {% for dept_ in depts %}
+            <option value="{{dept_.id}}" {% if emp.dept_id == dept_.id %} selected {% endif %}> {{dept_.name}}</option>
+          {% endfor %}
+        </select> <br>
+        <!-- <input type="number" id="dept" name="dept" value="{{ dept }}"><br> -->
+
+        <label for="role">Role</label><br>
+        <select class="form-select-sm" name="role" style="height: 32px; width: 190px; border-color: gray;" required>
+          <option value="">Select</option>
+          {% for role_ in roles %}
+            <option value="{{role_.id}}" {% if emp.role_id == role_.id %} selected {% endif %}>{{role_.name}}</option>
+          {% endfor %}
+        </select> <br>
+        <!-- <input type="number" id="role" name="role" value="{{ role }}"><br> -->
+
+        <label for="bonus">Bonus</label><br>
+        <input type="number" id="bonus" name="bonus" value="{{ emp.bonus }}" required><br>
+        <label for="phone">Phone Number</label><br>
+        <input type="number" id="phone" name="phone" value="{{ emp.phone }}" required><br>
+        <hr>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    {% endif %}
+
+{% endblock %}
